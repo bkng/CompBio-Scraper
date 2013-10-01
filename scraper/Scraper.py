@@ -8,7 +8,7 @@
 # stackoverflow.com/questions/11242967/python-search-with-image-google-images 
 
 # interface object
-import Entry
+import ../interface/Entry
 
 # BioPython
 import Bio
@@ -53,6 +53,7 @@ class Scraper:
 		record = Entrez.read(handle)
 		
 		# parse data
+		print record
 		name = record[0]["Organism_Name"]
 		description = record[0]["DefLine"]
 		value = record[0]["Number_of_Chromosomes"]
