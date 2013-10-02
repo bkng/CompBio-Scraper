@@ -9,7 +9,7 @@ class Entry():
     name 					scientific name of the organism
 	description 			description of the organism
     type 					GENOME or VIRUS constant
-    chromosome_count		number of chromoses in the organism's genome
+    chromosome_count		number of chromosomes in the organism's genome
 	base_count				number of bases in the organism's genome
     picture_url				URL of the picture to use for the cards
     """
@@ -24,17 +24,17 @@ class Entry():
 
     def get_name(self):
         return self._name
-		
+
 	def get_description(self):
 		return self._description
-	
+
 	def get_type(self):
 		return self._type
 
-    def get_entry_chromosome_count(self):
+    def get_chromosome_count(self):
         return self._chromosome_count
-		
-	def get_entry_base_count(self):
+
+	def get_base_count(self):
 		return self._base_count
 
     def get_picture_url(self):
