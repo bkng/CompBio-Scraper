@@ -46,7 +46,7 @@ class Scraper:
 		# extract and return first URL
 		return dataInfo[0]["unescapedUrl"]
 	
-	# get a GenomeEntry for a specific GenBank identifier
+	# get an Entry for a specific GenBank identifier
 	def getGenomeEntry(self, gbIdentifier):
 		# issue request
 		handle = Entrez.esummary(db="genome", id=gbIdentifier)
@@ -55,11 +55,33 @@ class Scraper:
 		# parse data
 		name = record[0]["Organism_Name"]
 		description = record[0]["DefLine"]
-		value = record[0]["Number_of_Chromosomes"]
+		chromosome_count = record[0]["Number_of_Chromosomes"]
+		base_count = 0
 		picture_url = self.getImageUrl(name)
 		
-		return Entry.Entry(name, description, Entry.GENOME, value, picture_url)
-			
-	def getVirusEntry(self, id):
+		return Entry.Entry(name, description, Entry.GENOME, chromosome_count, base_count, picture_url)
+	
+	def getVirusEntry(self, gbIdentifier):
+		# issue requests
+		ntHandle = Entrez.esummary(db="nucleotide", id=gbIdentifier, rettype="xml")
+		ntRecord = Entrez.read(ntHandle)
+		
+		taxId = ntRecord[0]["TaxId"]
+		taxHandle = Entrez.esummary(db="taxonomy", id=taxId)
+		taxRecord = Entrez.read(taxHandle)
+		
+		# parse data
+		name = taxRecord[0]["ScientificName"]
+		description = taxRecord[0]["CommonName"]
+		chromosome_count = 0
+		base_count = ntRecord[0]["Length"]
+		picture_url = self.getImageUrl(name)
+		
+		return Entry.Entry(name, description, Entry.VIRUS, chromosome_count, base_count, picture_url)
+	
+	def getVirusEntries(self, num):
+		pass
+		
+	def getChromosomeEntries(self, num):
 		pass
 	
