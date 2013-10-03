@@ -44,9 +44,9 @@ class Scraper:
 		dataInfo = data['results']
 
 		# extract and return first URL
-		return dataInfo[0]["unescapedUrl"]
+		return [row["unescapedUrl"] for row in dataInfo]
 	
-	# get an Entry for a specific GenBank identifier
+	# get an Entry for a specific genome db identifier
 	def getGenomeEntry(self, gbIdentifier):
 		# issue request
 		handle = Entrez.esummary(db="genome", id=gbIdentifier)
@@ -61,6 +61,7 @@ class Scraper:
 		
 		return Entry.Entry(name, description, Entry.GENOME, chromosome_count, base_count, picture_url)
 	
+	# get an Entry for a specific nucleotide db identifier
 	def getVirusEntry(self, gbIdentifier):
 		# issue requests
 		ntHandle = Entrez.esummary(db="nucleotide", id=gbIdentifier, rettype="xml")
