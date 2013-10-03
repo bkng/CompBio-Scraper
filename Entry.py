@@ -25,17 +25,17 @@ class Entry():
     def get_name(self):
         return self._name
 
-	def get_description(self):
-		return self._description
+    def get_description(self):
+        return self._description
 
-	def get_type(self):
-		return self._type
+    def get_type(self):
+	return self._type
 
     def get_chromosome_count(self):
         return self._chromosome_count
 
-	def get_base_count(self):
-		return self._base_count
+    def get_base_count(self):
+	return self._base_count
 
     def get_picture_url(self):
         return self._picture_url
