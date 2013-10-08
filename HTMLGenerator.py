@@ -33,8 +33,8 @@ class HTMLGenerator:
         paragraph = etree.SubElement(body, "p")
         img.attrib["src"] = self._entry.get_picture_url()
         if self._entry.get_entry_type() == Entry.VIRUS:
-            paragraph.text = "Genome Modifier:{0}".format(self._entry.get_entry_value())
+            paragraph.text = "Genome Modifier:{0}".format(self._entry.get_base_count())
         elif self._entry.get_entry_type() == Entry.GENOME:
-            paragraph.text = "Genome:{0}".format(self._entry.get_entry_value())
+            paragraph.text = "Genome:{0}".format(self._entry.get_chromosome_count())
         return html_root
 
