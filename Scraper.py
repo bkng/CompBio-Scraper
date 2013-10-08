@@ -73,13 +73,13 @@ class Scraper:
 		return Entry.Entry(name, description, entry_type, chromosome_count, base_count, picture_url)
 	
 	# get num Virus Entries, by querying for "virus" genomes
-	def getVirusEntries(self, num):
-		handle = Entrez.esearch(db="genome", term="virus", field="title", retmax=num)
+	def getVirusEntries(self, num, offset):
+		handle = Entrez.esearch(db="genome", term="virus", field="title", retmax=num, retstart=offset)
 		record = Entrez.read(handle)		
 		return [self.getEntry(id, Entry.VIRUS) for id in record["IdList"]]
 	
 	# get num Genome Entries
-	def getGenomeEntries(self, num):		
-		handle = Entrez.esearch(db="genome", term="genome", field="filter", retmax=num)
+	def getGenomeEntries(self, num, offset):		
+		handle = Entrez.esearch(db="genome", term="genome", field="filter", retmax=num, retstart=offset)
 		record = Entrez.read(handle)		
 		return [self.getEntry(id, Entry.GENOME) for id in record["IdList"]]
