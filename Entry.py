@@ -15,12 +15,12 @@ class Entry():
     """
 
     def __init__(self, name, description, entry_type, chromosome_count, base_count, picture_url):
-		self._name = name
-		self._description = description
-		self._entry_type = entry_type
-		self._chromosome_count = chromosome_count
-		self._base_count = base_count
-		self._picture_url = picture_url
+        self._name = name
+        self._description = description
+        self._entry_type = entry_type
+        self._chromosome_count = chromosome_count
+        self._base_count = base_count
+        self._picture_url = picture_url
 
     def get_name(self):
         return self._name
