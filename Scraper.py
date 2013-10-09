@@ -40,7 +40,12 @@ class Scraper:
 
 		# parse results JSON
 		results = simplejson.load(response)
-		data = results['responseData']
+		try:
+                        data = results['responseData']
+                        dataInfo = data['results']
+                except TypeError:
+                        return ""
+                
 		if data == None:
                         return ""
 		dataInfo = data['results']

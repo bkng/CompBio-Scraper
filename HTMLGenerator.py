@@ -42,9 +42,9 @@ class HTMLGenerator:
 
         paragraph = etree.SubElement(body, "p")
         if self._entry.get_entry_type() == Entry.VIRUS:
-            paragraph.text = "Genome Modifier:{0}".format(self._entry.get_base_count())
+            paragraph.text = "Genome Modifier (Kilobase Count):{0}".format(self._entry.get_base_count())
         elif self._entry.get_entry_type() == Entry.GENOME:
-            paragraph.text = "Genome:{0}".format(self._entry.get_chromosome_count())
+            paragraph.text = "Genome Score (Chromosome Count):{0}".format(self._entry.get_chromosome_count())
         description = etree.SubElement(body, "p")
         description.text = self._entry.get_description()
         return html_root
