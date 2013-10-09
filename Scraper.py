@@ -82,6 +82,6 @@ class Scraper:
 	
 	# get num Genome Entries
 	def getGenomeEntries(self, num, offset):		
-		handle = Entrez.esearch(db="genome", term="genome", field="filter", retmax=num, retstart=offset)
+		handle = Entrez.esearch(db="genome", term="has chromosome", field="properties", retmax=num, retstart=offset)
 		record = Entrez.read(handle)		
 		return [self.getEntry(id, Entry.GENOME) for id in record["IdList"]]
