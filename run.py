@@ -1,4 +1,3 @@
-from __future__ import print_function
 from lxml import etree
 from Scraper import Scraper
 from HTMLGenerator import HTMLGenerator
