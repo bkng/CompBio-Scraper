@@ -1,6 +1,7 @@
 
 div {
     border-style:groove;
+    float:left;
 }
 
 head {  
@@ -10,13 +11,14 @@ head {
 h1 {
     border-style:inset;
     font-family:"Lucida Console",Monaco, monospace;
+    font-size:50%;
     text-align:center;
 }
 
 h2 {
     border-style:outset;
     font-family:"Lucida Console",Monaco, monospace;
-    font-size:90%;
+    font-size:45%;
     text-align:center;
     float:center;
 }
@@ -26,10 +28,13 @@ img {
     border-style:solid;
     margin-left:auto;
     margin-right:auto;
+    width:120px;
+    height:auto;
 }
 
 p {
     border-style:solid;
     font-family:"Courier New",Courier, monospace;
+    font-size:45%;
     text-align:center;
 }

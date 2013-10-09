@@ -5,11 +5,10 @@ from Scraper import Scraper
 from HTMLGenerator import HTMLGenerator
 
 def write_entries(entries, type_of_entry):
-    gens = [HTMLGenerator(entry) for entry in entries]
-    html = [gen.get_html() for gen in gens]
-    for index, value in enumerate(html):
-        with open("cards/file_{0}{1}.html".format(type_of_entry, index), mode="w") as f:
-            f.write(etree.tostring(value, pretty_print=True))
+    gen = HTMLGenerator(entries)
+    html = gen.get_html()
+    with open("cards/file_{0}.html".format(type_of_entry), mode="w") as f:
+        f.write(etree.tostring(html, pretty_print=True))
 
 def main():
     scraper = Scraper("bennett.k.ng@gmail.com")

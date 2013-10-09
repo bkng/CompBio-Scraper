@@ -20,7 +20,7 @@ class HTMLGenerator:
         css.attrib["rel"] = "stylesheet"
         css.attrib["href"] = "card.css"
         for entry in self._entries:
-            html_root.append(self._get_html_for_entry(entry)
+            html_root.append(self._get_html_for_entry(entry))
         return html_root
 
     def _get_html_for_entry(self, entry):
@@ -49,18 +49,11 @@ class HTMLGenerator:
             img.attrib["src"] = image_results
 
         paragraph = etree.SubElement(body, "p")
-<<<<<<< HEAD
         if entry.get_entry_type() == Entry.VIRUS:
-            paragraph.text = "Genome Modifier:{0}".format(entry.get_base_count())
+            paragraph.text = "Genome Modifier (Kilobase Count):{0}".format(entry.get_base_count())
         elif entry.get_entry_type() == Entry.GENOME:
-            paragraph.text = "Genome:{0}".format(entry.get_chromosome_count())
-=======
-        if self._entry.get_entry_type() == Entry.VIRUS:
-            paragraph.text = "Genome Modifier (Kilobase Count):{0}".format(self._entry.get_base_count())
-        elif self._entry.get_entry_type() == Entry.GENOME:
-            paragraph.text = "Genome Score (Chromosome Count):{0}".format(self._entry.get_chromosome_count())
->>>>>>> 58c38cdfaacf3bb4ee48bcacd022d2520c63f502
+            paragraph.text = "Genome Score (Chromosome Count):{0}".format(entry.get_chromosome_count())
         description = etree.SubElement(body, "p")
         description.text = entry.get_description()
-        return html_root
+        return div_root
 
