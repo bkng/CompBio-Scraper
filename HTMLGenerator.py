@@ -49,10 +49,17 @@ class HTMLGenerator:
             img.attrib["src"] = image_results
 
         paragraph = etree.SubElement(body, "p")
+<<<<<<< HEAD
         if entry.get_entry_type() == Entry.VIRUS:
             paragraph.text = "Genome Modifier:{0}".format(entry.get_base_count())
         elif entry.get_entry_type() == Entry.GENOME:
             paragraph.text = "Genome:{0}".format(entry.get_chromosome_count())
+=======
+        if self._entry.get_entry_type() == Entry.VIRUS:
+            paragraph.text = "Genome Modifier (Kilobase Count):{0}".format(self._entry.get_base_count())
+        elif self._entry.get_entry_type() == Entry.GENOME:
+            paragraph.text = "Genome Score (Chromosome Count):{0}".format(self._entry.get_chromosome_count())
+>>>>>>> 58c38cdfaacf3bb4ee48bcacd022d2520c63f502
         description = etree.SubElement(body, "p")
         description.text = entry.get_description()
         return html_root
