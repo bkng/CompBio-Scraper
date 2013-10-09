@@ -12,8 +12,8 @@ def write_entries(entries, type_of_entry):
 
 def main():
     scraper = Scraper("")
-    ventries = scraper.getVirusEntries(20, 0)
-    gentries = scraper.getGenomeEntries(60, 0)
+    ventries = scraper.getVirusEntries(20)
+    gentries = scraper.getGenomeEntries(60)
     write_entries(ventries, "virus")
     write_entries(gentries, "genome")
 

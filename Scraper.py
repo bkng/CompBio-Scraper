@@ -41,9 +41,9 @@ class Scraper:
 		# parse results JSON
 		results = simplejson.load(response)
 		data = results['responseData']
+		dataInfo = data['results']
 		if data == None:
                         return ""
-		dataInfo = data['results']
 
 		# extract and return first URL
 		return [row["unescapedUrl"] for row in dataInfo]
